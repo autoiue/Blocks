@@ -15,5 +15,4 @@ public class OutNode<T>{
 	public void set(T value){
 		this.value = value;
 	}
-
 }
