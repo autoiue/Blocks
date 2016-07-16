@@ -1,7 +1,7 @@
 # Blocks
 Processing mockup for Mashine block UI.
 
-![screenshot from 2016-07-16 18-34-44](https://cloud.githubusercontent.com/assets/321345/16895908/07a6bc1a-4b84-11e6-9054-2794f636c2b6.png)
+![screenshot from 2016-07-17 00-48-40](https://cloud.githubusercontent.com/assets/321345/16897669/47d30008-4bb8-11e6-9bcc-1f64bbf1a79e.png)
 
 ## Instructions 
 
