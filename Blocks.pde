@@ -2,7 +2,7 @@ Grid grid;
 boolean dragging = false;
 
 void setup(){
-	size(1920,1080);
+	size(1380,1080);
 	surface.setResizable(true);
 
 	grid = new Grid(this);

@@ -39,7 +39,7 @@ public class Grid{
 		int gmousey = (int) Math.round((p.mouseY-pxOffset.y)/gridSize);
 
 		for(List<PVector> path : paths){
-			drawPath(path, 105,240,174, 25);
+			drawPath(path, 105,240,174, 50);
 		}
 
 		if(start != null){
@@ -54,31 +54,51 @@ public class Grid{
 			p.rect(b.x()*gridSize, b.y()*gridSize, b.w()*gridSize+1, b.h()*gridSize+1);
 
 			p.stroke(38,50,56); // #263238
-			p.strokeWeight(3);
+			p.strokeWeight(5);
 
-			p.fill(100,255,218); // #64FFDA
+			p.fill(100,255,218); // #64FFDA // 00BFA5
 			int i = 1;
-			for(InNode a : b.getContentInNodes()){	 
+			for(InNode a : b.getContentInNodes()){
+
+				if(gmousex == b.x() && gmousey == i+b.y()){p.fill(0,191,165);
+				}else if(start != null && (start.x != b.x() || start.y != i+b.y())){p.fill(84,110,122);
+				}else{p.fill(100,255,218);}	 
+
 				p.ellipse(b.x()*gridSize, (i+b.y())*gridSize, gridSize/2, gridSize/2);
 				checkClickedNode(b.x(), i+b.y(), gmousex, gmousey, 1);
 				i++;
 			}
 			i = 1;
-			for(InNode a : b.getControlInNodes()){	 
+			for(InNode a : b.getControlInNodes()){	
+
+				if(gmousex == i+b.x() && gmousey == b.y()){p.fill(0,191,165);
+				}else if(start != null && (start.x != i+b.x() || start.y != b.y())){p.fill(84,110,122);
+				}else{p.fill(100,255,218);}	  
+
 				p.ellipse((i+b.x())*gridSize, b.y()*gridSize, gridSize/2, gridSize/2);
 				checkClickedNode(i+b.x(), b.y(), gmousex, gmousey, 1);
 				i++;
 			}
 			
-			p.fill(255,255,0); // #FFFF00
+			p.fill(255,255,0); // #FFFF00 // FFD600 255,214,0
 			i = 1;
-			for(OutNode a : b.getContentOutNodes()){ 
+			for(OutNode a : b.getContentOutNodes()){
+
+				if(gmousex == b.x()+b.w() && gmousey == i+b.y()){p.fill(255,214,0);
+				}else if(end != null && (end.x != b.x()+b.w() || end.y != i+b.y())){p.fill(84,110,122);
+				}else{p.fill(255,255,0);}	
+
 				p.ellipse((b.x()+b.w())*gridSize, (i+b.y())*gridSize, gridSize/2, gridSize/2);
 				checkClickedNode(b.x()+b.w(), i+b.y(), gmousex, gmousey, 2);
 				i++;
 			}
 			i = 1;
-			for(OutNode a : b.getControlOutNodes()){ 
+			for(OutNode a : b.getControlOutNodes()){
+
+				if(gmousex == i+b.x() && gmousey == b.h()+b.y()){p.fill(255,214,0);
+				}else if(end != null && (end.x != i+b.x() || end.y != b.h()+b.y())){p.fill(84,110,122);
+				}else{p.fill(255,255,0);}	  
+
 				p.ellipse((i+b.x())*gridSize, (b.h()+b.y())*gridSize, gridSize/2, gridSize/2);
 				checkClickedNode(i+b.x(), b.h()+b.y(), gmousex, gmousey, 2);
 				i++;
@@ -105,7 +125,7 @@ public class Grid{
 
 	private void drawPath(List<PVector> path, int r, int g, int b, int a){
 		if(path == null) return;
-		p.strokeWeight(3);
+		p.strokeWeight(4);
 
 		PVector prev = null;
 		for(PVector current : path){
